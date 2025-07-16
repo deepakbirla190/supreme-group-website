@@ -8,7 +8,6 @@ import Link from "next/link";
 export default function Header() {
   const controls = useAnimation();
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     let ticking = false;

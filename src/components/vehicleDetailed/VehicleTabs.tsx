@@ -24,7 +24,7 @@ export default function VehicleTabs() {
   const [activeTab, setActiveTab] = useState("passenger");
   const [scrollDirection, setScrollDirection] = useState("down");
   const lastScrollY = useRef(0);
-  const sectionRef = useRef(null);
+  const sectionRef = useRef<HTMLElement>(null); // or HTMLDivElement, etc.
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,7 +69,7 @@ export default function VehicleTabs() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrollDirection]);
 
-  const handleTabClick = (tabKey) => {
+  const handleTabClick = (tabKey: string) => {
     setActiveTab(tabKey);
   };
 
@@ -210,7 +210,7 @@ export default function VehicleTabs() {
         transition={{ duration: 0.8, delay: 1.2 }}
       >
         <div className="flex flex-col items-center space-y-4">
-          {tabData.map((tab, index) => (
+          {tabData.map((tab) => (
             <motion.div
               key={tab.key}
               className={`w-2 h-8 rounded-full transition-all duration-300 ${

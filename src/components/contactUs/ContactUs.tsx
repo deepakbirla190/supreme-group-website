@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { ChangeEvent, useState } from "react";
 
 export default function ContactUs() {
   const [formData, setFormData] = useState({
@@ -9,12 +9,12 @@ export default function ContactUs() {
     message: "",
   });
 
-  const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  setFormData(prev => ({
+    ...prev,
+    [e.target.name]: e.target.value,
+  }));
+};
 
   const handleSubmit = () => {
     console.log("Form submitted:", formData);

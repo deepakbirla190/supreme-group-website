@@ -29,15 +29,12 @@ function VideoSlider({
   heading2 = "",
 }: VideoSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [transitionDirection, setTransitionDirection] = useState<
-    "left" | "right"
-  >("right");
   const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     if (autoPlay && videos.length > 1) {
       const interval = setInterval(() => {
-        handleNext();
+        return;
       }, autoPlayInterval);
       return () => clearInterval(interval);
     }
@@ -50,18 +47,7 @@ function VideoSlider({
     }
   }, [currentIndex]);
 
-  const handleNext = () => {
-    setTransitionDirection("right");
-    setCurrentIndex((prev) => (prev + 1) % videos.length);
-  };
-
-  const handlePrev = () => {
-    setTransitionDirection("left");
-    setCurrentIndex((prev) => (prev === 0 ? videos.length - 1 : prev - 1));
-  };
-
   const goToSlide = (index: number) => {
-    setTransitionDirection(index > currentIndex ? "right" : "left");
     setCurrentIndex(index);
   };
 
