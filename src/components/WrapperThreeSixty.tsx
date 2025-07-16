@@ -7,15 +7,10 @@ const ThreeSixtySolution = dynamic(
   { ssr: false }
 );
 
-const ContactUs = dynamic(() => import("@/components/contactUs/ContactUs"), {
-  ssr: false,
-});
-
 export default function WrapperThreeSixty() {
   return (
     <>
       <ThreeSixtySolution />
-      <ContactUs />
     </>
   );
 }
