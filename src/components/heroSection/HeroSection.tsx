@@ -1,7 +1,5 @@
 "use client";
-
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const HeroSection = () => {
   return (
@@ -58,26 +56,7 @@ const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1.5 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center space-y-2">
-          <span className="text-sm text-white/70">Scroll Down</span>
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            className="h-6 w-4 rounded-full border-2 border-white/50"
-          >
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{
-                duration: 1.5,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-              className="mx-auto mt-1 h-1 w-1 rounded-full bg-white/70"
-            />
-          </motion.div>
-        </div>
-      </motion.div>
+      ></motion.div>
     </section>
   );
 };
